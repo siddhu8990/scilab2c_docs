@@ -1,0 +1,98 @@
+%Author: Siddhesh Wani
+%Date: December 8, 2015
+
+
+
+
+\documentclass[12pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{hyperref}
+\usepackage[a4paper]{geometry}
+%DO NOT EDIT start
+%Define different shapes to be used in flowchart
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{connector} = [signal,draw=black,fill=olive!30]%,text width=1cm,text height=1.5cm,align=center]
+%DO NOT EDIT end
+
+
+
+
+\begin{document}
+\newgeometry{top=1cm, bottom=0.5cm,right=1cm,left=1.5cm}
+
+\vspace*{2cm}
+\begin{center}
+
+\section*{\hypertarget{runsci2c}runsci2c.sci}
+{Siddhesh Wani}\\
+ 
+\end{center}
+
+
+\textbf{Introduction}\\
+'runsci2c' is called by 'scilab2c'. It calls some initialisation modules and then does the conversion. After conversion is complete, it copies the source files in output 
+directory and then calls other module to generate makefile for compilation.\\
+
+
+\begin{center}
+
+\begin{tikzpicture}[node distance=2cm]
+
+\node (start) [startstop] {Start};
+\node (input)[io, below of=start, text width=7cm] {Scilab main file, other supporting scilab files, output directory,Run mode, Build tool, Target platform};
+\node (initialise) [process, below of=input]{Initialise `ShareInfo'  and  `FileInfo' structures (\hyperlink{initSCI2C}{INIT\_SCI2C})};
+\node (getMode) [process, below of=initialise]{Get `RunMode'};
+\node (runMode) [decision, below of=getMode, text width=3cm, yshift=-2cm]{Is RunMode All or Generate library structure?};
+\node (genLib) [process, right of=runMode, xshift=5cm, text width=5cm]{Initialise library structure (\hyperlink{initGenLib}{INIT\_GenLibraries})};
+\node (loadLib) [process, below of=runMode, yshift=-2cm] {Load library information (\hyperlink{initGenLib}{INIT\_LoadLibraries})};
+\node (A) [connector,below of=loadLib, signal to=south, yshift=-1cm] {A};
+
+\draw [arrow] (start) -- (input);
+\draw [arrow] (input) -- (initialise);
+\draw [arrow] (initialise) -- (getMode);
+\draw [arrow] (getMode) -- (runMode);
+\draw [arrow] (runMode) -- node[yshift=0.3cm]{Yes} (genLib);
+\draw [arrow] (runMode) -- node[xshift=0.3cm]{No} (loadLib);
+\draw [arrow] (loadLib) -- (A);
+\end{tikzpicture}
+
+\begin{tikzpicture}[node distance=2cm]
+\node (A) [connector]{A}; 
+\node (runMode1) [decision, below of=A, text width=2.5cm, yshift=-2cm]{Is RunMode All or Translate?}; 
+\node (main) [process, below of=runMode1, yshift=-1cm]{Get main scilab file};
+\node (updInfo)[process, below of=main,text width=4cm, yshift=-0.5cm]{Update its info in `FileInfo' (UpdateSCI2CInfo)};
+\node (getAST)[process, below of=updInfo, text width=4cm, yshift=-0.5cm]{Generate AST file (AST\_GetASTFile)};
+\node (ast2c)[process, below of=getAST, text width=4cm, yshift=-0.5cm]{Generate C code from AST file (AST2Ccode) };
+\node (decJoin)[process, below of=ast2c, text width=4cm, yshift=-1cm]{Join variable declarations and C code (JoinDeclarAndCcode)};
+\node (checkFile)[decision, below of=decJoin, text width=3cm, yshift=-2cm]{Is any scilab file left for conversion?};
+\node (getFile) [process, left of=ast2c, xshift=-4.5cm, text width=3cm]{Get next scilab file};
+\node (copy)[process,right of=main, xshift=5cm, text width=4cm]{Copy source files to output directory};
+\node (makefile)[process, below of=copy, text width=4cm, yshift=-1cm]{Generate makefile according to target platform (C\_GenerateMakefile};
+\node (sci2cHeader)[process, below of=makefile, text width=5cm, yshift=-1cm]{Generate SCI2C header (C\_GenerateSCI2CHeader)};
+\node (stop) [startstop, below of=sci2cHeader] {Stop};
+
+\draw [arrow] (A) -- (runMode1);
+\draw [arrow] (runMode1.east) -| node[near start,yshift=0.3cm]{No} (copy.north);
+\draw [arrow] (runMode1) -- node[xshift=0.3cm]{Yes} (main);
+\draw [arrow] (main) -- (updInfo);
+\draw [arrow] (updInfo) -- (getAST);
+\draw [arrow] (getAST) -- (ast2c);
+\draw [arrow] (ast2c) -- (decJoin);
+\draw [arrow] (decJoin) -- (checkFile);
+\draw [arrow] (checkFile.west) -| node[near start,yshift=0.3cm]{Yes} (getFile.south);
+\draw [arrow] (getFile.north) |- (updInfo);
+\draw [arrow] (checkFile.east) node[yshift=0.3cm] {No} --++ (1cm,0) |-  (copy.west);
+\draw [arrow] (copy) -- (makefile);
+\draw [arrow] (makefile) -- (sci2cHeader);
+\draw [arrow] (sci2cHeader) -- (stop);
+
+\end{tikzpicture}
+
+\end{center}
+
+\end{document}

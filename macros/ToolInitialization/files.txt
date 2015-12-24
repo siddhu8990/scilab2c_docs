@@ -1,0 +1,14 @@
+./INIT_LoadLibraries.sci
+./doublecomplex.sci
+./floatcomplex.sci
+./INIT_CreateDirs.sci
+./INIT_FillSCI2LibCDirs.sci
+./INIT_GenAnnFLFunctions.sci
+./INIT_GenFileInfo.sci
+./INIT_GenLibraries.sci
+./INIT_GenSharedInfo.sci
+./INIT_RemoveDirs.sci
+./INIT_SCI2C.sci
+./INIT_SharedInfoEqual.sci
+./ManageNextConversion.sci
+./UpdateSCI2CInfo.sci

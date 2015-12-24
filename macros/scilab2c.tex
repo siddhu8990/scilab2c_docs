@@ -1,0 +1,131 @@
+%Author: Siddhesh Wani
+%Date: December 2, 2015
+
+
+
+
+\documentclass[12pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{hyperref}
+\usepackage[a4paper]{geometry}
+
+
+%DO NOT EDIT start
+%Define different shapes to be used in flowchart
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{connector} = [signal,draw=black,fill=olive!30]%,text width=1cm,text height=1.5cm,align=center]
+%DO NOT EDIT end
+
+
+
+
+\begin{document}
+\newgeometry{top=1cm, bottom=0.5cm,right=1cm,left=1.5cm}
+
+\vspace*{2cm}
+\begin{center}
+
+\section*{scilab2c.sci}
+{Siddhesh Wani}
+ 
+\end{center}
+
+
+{\textbf{Introduction}\\
+`scilab2c' is the main function for scilab2c module. Code execution for scilab2c starts from this function. 
+`scilab2c' function can be used from command line. It accepts variable number of arguements and depending upon no of arguements
+and their values it calls `runsci2c'.\\
+
+
+\begin{tikzpicture}[node distance=2cm]
+
+\node (start) [startstop] {Start};
+\node (in1) [io, below of=start, text width=4cm] {Accepts any no of inputs between 0 to 6,except 1};
+\node (pro1) [process, below of=in1] {Get no of inputs};
+\node (no$_$input) [decision, below of=pro1, text width=1cm, yshift=-0.5cm]{Any input present?};
+\node (gui) [process, right of=no$_$input, xshift=3cm]{Start scilab2c GUI};
+\node (2$_$input) [decision, below of=no$_$input, xshift=-4cm, yshift=-2.5cm, text width=1.5cm]{No of arguements = 2?};
+\node (2$_$input$_$pro) [process, right of=2$_$input, xshift=6.2cm, text width=11cm]{Assign:\\ scilab main file = input 1,
+folder for other scilab files = []\\ output directory = input 2, runmode = `All' \\buildtool = get buid tool from type of the OS
+\\ outformat = `Standalone'};
+\node (A) [connector,below of=2$_$input, signal to=south, yshift=-1cm] {A};
+
+\draw [arrow] (start) -- (in1);
+\draw [arrow] (in1) -- (pro1);
+\draw [arrow] (pro1) -- (no$_$input);
+\draw [arrow] (no$_$input) -- node[yshift=0.3cm] {No} (gui);
+\draw [arrow] (no$_$input) -| node[west,yshift=0.3cm] {Yes} (2$_$input);
+\draw [arrow] (2$_$input) -- node[yshift=0.3cm] {Yes} (2$_$input$_$pro);
+\draw [arrow] (2$_$input) -- node[xshift=0.3cm] {No} (A);
+
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+\node (A) [connector]{A};
+\node (3$_$input) [decision, below of=A, xshift=-3cm, yshift=-2.5cm, text width=1.5cm]{No of arguements = 3?};
+\node (3$_$input$_$pro) [process, right of=3$_$input, xshift=7cm, text width=9.5cm]{Assign: scilab main file = input 1\\
+folder for other scilab files = input 3\\ output directory = input 2, runmode = `All' \\buildtool = get buid tool from type of the OS
+\\ outformat = `Standalone'};
+\node (4$_$input) [decision, below of=3$_$input, yshift=-3.5cm, text width=1.5cm]{No of arguements = 4?};
+\node (4$_$input$_$pro) [process, right of=4$_$input, xshift=7cm, text width=9.5cm]{Assign: scilab main file = input 1\\
+folder for other scilab files = input 3\\ output directory = input 2, runmode = input 4 \\buildtool = get buid tool from type of the OS
+\\ outformat = `Standalone'};
+\node (5$_$input) [decision, below of=4$_$input, yshift=-3.5cm, text width=1.5cm]{No of arguements = 5?};
+\node (5$_$input$_$pro) [process, right of=5$_$input, xshift=7cm, text width=9.5cm]{Assign: scilab main file = input 1\\
+folder for other scilab files = input 3\\ output directory = input 2, runmode = input 4 \\buildtool = input 5,
+outformat = `Standalone'};
+\node (6$_$input) [decision, below of=5$_$input, yshift=-3.5cm, text width=1.5cm]{No of arguements = 6?};
+\node (6$_$input$_$pro) [process, right of=6$_$input, xshift=7cm, text width=9.5cm]{Assign: scilab main file = input 1\\
+folder for other scilab files = input 3\\ output directory = input 2, runmode = input 4 \\buildtool = input 5,
+outformat = input 6};
+\node (outformat)[decision, below of=6$_$input$_$pro, text width=2cm, yshift=-3.5cm] {Is output format `Standalone'?};
+\node (exec) [process, below of=outformat, yshift=-2.5cm]{Execute scilab code};
+\node (B) [connector, right of=exec,xshift=2cm]{B};
+\node (D) [connector, below of=6$_$input, yshift=-3cm]{D};
+
+\draw [arrow] (A) -| (3$_$input);
+\draw [arrow] (3$_$input) -- node[yshift=0.3cm] {Yes} (3$_$input$_$pro);
+\draw [arrow] (3$_$input) -- node[xshift=0.3cm] {No} (4$_$input);
+\draw [arrow] (4$_$input) -- node[yshift=0.3cm] {Yes} (4$_$input$_$pro);
+\draw [arrow] (4$_$input) -- node[xshift=0.3cm] {No} (5$_$input);
+\draw [arrow] (5$_$input) -- node[yshift=0.3cm] {Yes} (5$_$input$_$pro);
+\draw [arrow] (5$_$input) -- node[xshift=0.3cm] {No} (6$_$input);
+\draw [arrow] (6$_$input) -- node[yshift=0.3cm] {Yes} (6$_$input$_$pro);
+\draw [arrow] (6$_$input) -- node[xshift=0.3cm] {No} (D);
+\draw [arrow] (6$_$input$_$pro) -- (outformat);
+\draw [arrow] (outformat) -- node[xshift=0.3cm]{Yes} (exec);
+\draw [arrow] (outformat) -| node[yshift=0.3cm]{No} (B.north);
+\draw [arrow] (exec.east) --  (B.west);
+\draw [arrow] (3$_$input$_$pro.east) --++ (1cm,0) |- (outformat.north);
+\draw [arrow] (4$_$input$_$pro.east) --++ (1cm,0);
+\draw [arrow] (5$_$input$_$pro.east) --++ (1cm,0);
+%\draw [arrow] (6$_$input$_$pro) -- (stop);
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (B) [connector]{B};
+\node (D) [connector, left of=B, xshift=-4cm]{D};
+\node (mode) [decision, below of=B,text width=2cm, yshift=-2cm]{Is scilab in `std' mode?};
+\node (msg) [process, below of=mode, text width=6cm, yshift=-2cm]{Display message dialogue box asking to continue conversion};
+\node (continue) [decision, below of=msg,yshift=-3cm, text width=2cm]{User wants to continue conversion?};
+\node (conversion) [process, right of=continue, xshift=4cm]{Call `\hyperlink{runsci2c}{runsci2c}'};
+\node (stop) [startstop, below of=continue, yshift=-3cm] {Stop};
+
+\draw [arrow] (B) -- (mode);
+\draw [arrow] (mode) -- node[xshift=0.3cm]{Yes}(msg);
+\draw [arrow] (mode.east) node[yshift=0.3cm, xshift=0.2cm]{No} -- ++(6cm,0) |- (stop.east);
+\draw [arrow] (msg) -- (continue);
+\draw [arrow] (continue) -- node[yshift=0.3cm]{Yes} (conversion);
+\draw [arrow] (continue) -- node[xshift=0.3cm]{No} (stop);
+\draw [arrow] (D) |- (stop.west);
+
+\end{tikzpicture}}
+
+\end{document}

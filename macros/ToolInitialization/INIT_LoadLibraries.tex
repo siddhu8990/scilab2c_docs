@@ -1,0 +1,62 @@
+%Author: Siddhesh Wani
+%Date: December 13, 2015
+
+
+
+
+\documentclass[12pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{hyperref}
+\usepackage[a4paper]{geometry}
+%DO NOT EDIT start
+%Define different shapes to be used in flowchart
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{connector} = [signal,draw=black,fill=olive!30]%,text width=1cm,text height=1.5cm,align=center]
+%DO NOT EDIT end
+
+
+
+
+\begin{document}
+\newgeometry{top=1cm, bottom=0.5cm,right=1cm,left=1.5cm}
+
+\vspace*{2cm}
+\begin{center}
+
+\section*{\hypertarget{initLoadLib}INIT\_SciLibraries.sci}
+{Siddhesh Wani}\\
+ 
+\end{center}
+
+
+\textbf{Introduction}\\
+`INIT\_LoadLibraries' generates list of available function annotations.\\
+\begin{center}
+ 
+
+
+\begin{tikzpicture}[node distance=2cm]
+\node (start) [startstop] {Start};
+\node (input) [io, below of=start]{.dat file containing `FileInfo' structure};
+\node (fileinfo)[process, below of=input]{Load `FileInfo' structure};
+\node (sharedinfo)[process,below of=fileinfo]{Load `SharedInfo' structure};
+\node (list) [process, below of=sharedinfo, text width=5cm]{Make list of functions available for conversion \\ FL\_ExtractFuncList };
+\node (save)[process, below of=list]{Save list in a .dat file};
+\node (stop) [startstop, below of=save]{Stop};
+
+
+\draw [arrow] (start) -- (input);
+\draw [arrow] (input) -- (fileinfo);
+\draw [arrow] (fileinfo) -- (sharedinfo);
+\draw [arrow] (sharedinfo) -- (list);
+\draw [arrow] (list) -- (save);
+\draw [arrow] (save) -- (stop);
+\end{tikzpicture}
+\end{center}
+
+\end{document}
