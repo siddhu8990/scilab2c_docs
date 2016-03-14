@@ -25,9 +25,9 @@
 
 
 \begin{document}
-\newgeometry{top=1cm, bottom=0.5cm,right=1cm,left=1.5cm}
+\newgeometry{top=2cm, bottom=0.5cm,right=1cm,left=1.5cm}
 
-\vspace*{2cm}
+\vspace*{1cm}
 \begin{center}
 
 \section*{scilab2c.sci}
@@ -41,7 +41,7 @@
 `scilab2c' function can be used from command line. It accepts variable number of arguements and depending upon no of arguements
 and their values it calls `runsci2c'.\\
 
-
+\begin{center}
 \begin{tikzpicture}[node distance=2cm]
 
 \node (start) [startstop] {Start};
@@ -49,7 +49,7 @@ and their values it calls `runsci2c'.\\
 \node (pro1) [process, below of=in1] {Get no of inputs};
 \node (no$_$input) [decision, below of=pro1, text width=1cm, yshift=-0.5cm]{Any input present?};
 \node (gui) [process, right of=no$_$input, xshift=3cm]{Start scilab2c GUI};
-\node (2$_$input) [decision, below of=no$_$input, xshift=-4cm, yshift=-2.5cm, text width=1.5cm]{No of arguements = 2?};
+\node (2$_$input) [decision, below of=no$_$input, xshift=-4cm, yshift=-1.5cm, text width=1.5cm]{No of arguements = 2?};
 \node (2$_$input$_$pro) [process, right of=2$_$input, xshift=6.2cm, text width=11cm]{Assign:\\ scilab main file = input 1,
 folder for other scilab files = []\\ output directory = input 2, runmode = `All' \\buildtool = get buid tool from type of the OS
 \\ outformat = `Standalone'};
@@ -64,7 +64,7 @@ folder for other scilab files = []\\ output directory = input 2, runmode = `All'
 \draw [arrow] (2$_$input) -- node[xshift=0.3cm] {No} (A);
 
 \end{tikzpicture}
-
+\end{center}
 
 \begin{tikzpicture}
 \node (A) [connector]{A};

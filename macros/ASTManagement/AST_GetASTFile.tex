@@ -1,17 +1,5 @@
-
 %Author: Siddhesh Wani
-%Date: November 23, 2015
-
-
-
-
-
-
-
-
-%DO NOT 
-%  -- change color scheme
-%  -- modify version no.
+%Date: January 7, 2016
 
 
 
@@ -20,7 +8,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
 \usepackage{hyperref}
-
+\usepackage[a4paper]{geometry}
 %DO NOT EDIT start
 %Define different shapes to be used in flowchart
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
@@ -28,33 +16,45 @@
 \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
 \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
 \tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{connector} = [signal,draw=black,fill=olive!30]%,text width=1cm,text height=1.5cm,align=center]
 %DO NOT EDIT end
 
-\title{Filename.sci}
-\author{Siddhesh Wani}
-\title{AST_GetASTFile.sci}
+
 
 
 \begin{document}
-\maketitle
+\newgeometry{top=2cm, bottom=0.5cm,right=1cm,left=1.5cm}
+
+\vspace*{2cm}
+\begin{center}
+
+\section*{\hypertarget{AST_GetASTFile}AST\_GetASTFile.sci}
+{Siddhesh Wani}\\
+ 
+\end{center}
+
 
 \textbf{Introduction}\\
-Write some introduction about file here. What input (if any) it accepts, what it does and what is the output (if any).
+Gets next function from `FileInfo' structure and calls `SciFile2ASTFile' with appropriate arguments to generate AST file file from scilab file.
 
+\begin{center}
 
 \begin{tikzpicture}[node distance=2cm]
-\label{first}
-\node (start) [startstop] {Start};
-\node (in1) [io, below of=start] {Inputs required };
-\node (pro1) [process, below of=in1] {What all go between Input and Output, is your job};
-\node (out1) [io, below of=pro1] {Output};
-\node (stop) [startstop, below of=out1] {Stop};
+\node (start) [startstop, xshift=-4cm] {Start};
+\node (input) [io, below of=start, text width=6cm]{.dat file containing `FileInfo' structure};
+\node (fileinfo)[process, below of=input, text width=6cm, yshift=-0.2cm]{Load `FileInfo' structure};
+\node (nextfun) [process, below of=fileinfo, text width=6cm, yshift=-0.2cm]{Get name of next function to be converted};
+\node (ast)[process, below of=nextfun, text width=6cm]{Generate AST file from scilab file (SciFile2ASTFile)};
+\node (stop)[startstop, below of=ast]{Stop};
 
-\draw [arrow] (start) -- (in1);
-\draw [arrow] (in1) -- (pro1);
-\draw [arrow] (pro1) -- (out1);
-\draw [arrow] (out1) -- (stop);
+\draw [arrow] (start) -- (input);
+\draw [arrow] (input) -- (fileinfo);
+\draw [arrow] (fileinfo) -- (nextfun);
+\draw [arrow] (nextfun) -- (ast);
+\draw [arrow] (ast) -- (stop);
+
+
 \end{tikzpicture}
-
+\end{center}
 
 \end{document}

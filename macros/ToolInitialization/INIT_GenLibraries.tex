@@ -42,7 +42,7 @@
 \node (input) [io, below of=start]{.dat file containing `FileInfo' structure};
 \node (fileinfo)[process, below of=input]{Load `FileInfo' structure};
 \node (sharedinfo)[process,below of=fileinfo]{Load `SharedInfo' structure};
-\node (gen)[process, below of=sharedinfo]{Generate function annotations for the functions supported \\ INIT\_FillSCI2CLibCDirs};
+\node (gen)[process, below of=sharedinfo, text width=5cm]{Generate function annotations for the functions supported \\ INIT\_FillSCI2CLibCDirs};
 \node (stop)[startstop, below of=gen]{Stop};
 
 \draw [arrow] (start) -- (input);

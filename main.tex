@@ -7,7 +7,7 @@
 %  -- change color scheme
 %  -- modify version no.
 
-\documentclass[12pt]{book}
+\documentclass[12pt]{article}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
 \usepackage[colorlinks=true, linkcolor=blue, pdfborder={0 0 0}]{hyperref}
@@ -24,8 +24,8 @@
 \tikzstyle{connector} = [signal,draw=black,fill=olive!30]%,text width=1cm,text height=1.5cm,align=center]
 %DO NOT EDIT end
 
-\title{Documentation for `scilab2c' Scilab extension}
-\author{Siddhesh Wani}
+\title{Documentation for `Scilab2C' Scilab extension}
+
 \date{}
 
 
@@ -34,6 +34,7 @@
 \maketitle
 
 \section{Introduction}
+\setcounter{section}{1}
 `Scilab' is a programming language widely used by researchers and students for scientific computations. Scilab is very easy to use and learn. But with easiness of use comes the 
 problem of porting to different platforms (specially embedded devices) and execution speed where C coding takes the precedence. Wouldn't it be nice if there is an utility to 
 convert scilab code to C code? Here comes the `Scilab2c' to help. `Scilab2c' is an extension for Scilab for converting scilab files to C code. This document gives an 
@@ -55,7 +56,7 @@ it is preferred over other programming languages like C, Java or Python. But cod
  useful for the user. 
 \section{Introduction to `scilab2c'}
 \newpage
-\section{How to use `scilab2c'}
+%\section{How to use `scilab2c'}
 
 \input{how_to_use_scilab2c}
 \newpage
@@ -65,4 +66,7 @@ it is preferred over other programming languages like C, Java or Python. But cod
 \input{macros/runsci2c};
 \input{macros/ToolInitialization/INIT_SCI2C};
 \input{macros/ToolInitialization/INIT_GenLibraries};
+\input{macros/ToolInitialization/INIT_LoadLibraries};
+\input{macros/ToolInitialization/UpdateSCI2CInfo};
+\input{macros/ASTManagement/AST_GetASTFile};
 \end{document}

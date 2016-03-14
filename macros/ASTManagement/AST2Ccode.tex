@@ -1,17 +1,5 @@
-
 %Author: Siddhesh Wani
-%Date: November 23, 2015
-
-
-
-
-
-
-
-
-%DO NOT 
-%  -- change color scheme
-%  -- modify version no.
+%Date: January 4, 2016
 
 
 
@@ -20,7 +8,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
 \usepackage{hyperref}
-
+\usepackage[a4paper]{geometry}
 %DO NOT EDIT start
 %Define different shapes to be used in flowchart
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
@@ -28,33 +16,122 @@
 \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
 \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
 \tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{connector} = [signal,draw=black,fill=olive!30]%,text width=1cm,text height=1.5cm,align=center]
 %DO NOT EDIT end
 
-\title{Filename.sci}
-\author{Siddhesh Wani}
-\title{AST2Ccode.sci}
+
 
 
 \begin{document}
-\maketitle
+\newgeometry{top=1cm, bottom=0.5cm,right=1cm,left=1.5cm}
+
+\vspace*{2cm}
+\begin{center} 
+
+
+\section*{\hypertarget{updateSCI2CInfo}UpdateSCI2CInfo.sci}
+{Siddhesh Wani}\\
+ 
+\end{center}
 
 \textbf{Introduction}\\
-Write some introduction about file here. What input (if any) it accepts, what it does and what is the output (if any).
+This fucntion gets next scilab function to be converted and updates its information in `Fileinfo' structure. 
 
+\begin{center}
 
 \begin{tikzpicture}[node distance=2cm]
-\label{first}
 \node (start) [startstop] {Start};
-\node (in1) [io, below of=start] {Inputs required };
-\node (pro1) [process, below of=in1] {What all go between Input and Output, is your job};
-\node (out1) [io, below of=pro1] {Output};
-\node (stop) [startstop, below of=out1] {Stop};
+\node (input) [io, below of=start]{.dat file containing `FileInfo' structure};
+\node (fileinfo)[process, below of=input]{Load `FileInfo' structure};
+\node (sharedinfo)[process,below of=fileinfo]{Load `SharedInfo' structure};
+\node (nextfun) [process, below of=sharedinfo]{Get next scilab function to be converted and get corresponding AST file};
+\node (ast) [process, below of=nextfun]{Parse AST header (AST\_ReadASTHeader,AST\_HandleHeader)};
+\node (nextline)[process, below of=ast]{Get next line form ast};
+\node (endoperation)[decision, below of=nextline, xshift=-5cm, yshift=-2cm]{EndOperation};
+\node (endoperation1) [process, right of=endoperation, xshift=6cm]{AST\_HandleEndGenFun(Operation)};
+\node (A)[connector, below of=endoperation, yshift=-1cm]{A};
+\node (B) [connector, left of=nextline, xshift=-1cm]{B};
+\node (C) [connector, right of=A, xshift=10cm]{C};
 
-\draw [arrow] (start) -- (in1);
-\draw [arrow] (in1) -- (pro1);
-\draw [arrow] (pro1) -- (out1);
-\draw [arrow] (out1) -- (stop);
+\draw [arrow] (start) -- (input);
+\draw [arrow] (input) -- (fileinfo);
+\draw [arrow] (fileinfo) -- (sharedinfo);
+
 \end{tikzpicture}
 
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[node distance=2cm]
+\node (A)[connector, xshift=-5cm] {A};
+\node (C)[connector, right of=A, xshift=12cm]{C};
+\node (endfuncall)[decision, below of=A, yshift=-1cm]{EndFuncall};
+\node (endfuncall1) [process, right of=endfuncall, xshift=6cm]{AST\_HandleEndGenFun(Funcall)};
+\node (endequal)[decision, below of=endfuncall, yshift=-1.5cm]{EndEqual};
+\node (endequal1) [process, right of=endequal, xshift=6cm]{AST\_HandleEndGenFun(Equal)};
+\node (equal)[decision, below of=endequal, yshift=-1.5cm]{Equal};
+\node (equal1) [process, right of=equal, xshift=6cm]{`Equal' block started};
+\node (lhs)[decision, below of=equal, yshift=-1.5cm]{EndEqual};
+\node (lhs1) [process, right of=lhs, xshift=6cm]{`Lhs' block started. (AST\_ReadEqualRhsNames)};
+\node (if)[decision, below of=lhs, yshift=-1.5cm]{If Statements};
+\node (if1) [process, right of=if, xshift=6cm]{AST\_HandleIfElse(if)};
+\node (else)[decision, below of=if, text width=2cm, yshift=-2cm]{Else If Expression};
+\node (else1) [process, right of=else, xshift=6cm]{AST\_HandleIfElse(else)};
+\node (elseif)[decision, below of=else, text width=2cm, yshift=-2cm]{Else If Statements};
+\node (elseif1) [process, right of=elseif, xshift=6cm]{AST\_HandleIfElse(elseif)};
+\node (D)[connector, below of=elseif, yshift=-1cm]{D};
+\node (E)[connector, right of=D, xshift=12cm]{E};
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+\node (D)[connector, xshift=-5cm]{D};
+\node (E)[connector, right of=D, xshift=12cm]{E};
+\node (else2)[decision, below of=D, text width=2cm, yshift=-2cm]{Else Statements};
+\node (else21) [process, right of=else2, xshift=6cm]{AST\_HandleIfElse(else)};
+\node (endif)[decision, below of=else2, yshift=-2cm]{EndIf};
+\node (endif1) [process, right of=endif, xshift=6cm]{C\_IfElseBlocks(out)};
+\node (comment)[decision, below of=endif, yshift=-2cm]{Comment};
+\node (comment1) [process, right of=comment, xshift=6cm]{AST\_HandleEOL};
+\node (eol)[decision, below of=comment, yshift=-2cm]{<EOL>};
+\node (eol1) [process, right of=eol, xshift=6cm]{AST\_HandleIfElse(else)};
+\node (endprogram)[decision, below of=eol, yshift=-2cm]{EndProgram};
+\node (endprogram1) [process, right of=endprogram, xshift=6cm]{AST\_HandleEndProgram};
+\node (for)[decision, below of=endprogram, yshift=-2cm]{For};
+\node (for1) [process, right of=for, xshift=6cm]{Increase `For' level by 1. (AST\_HandleFor};
+\node (forexp)[decision, below of=for, yshift=-2cm]{ForExpression};
+\node (forexp1) [process, right of=forexp, xshift=6cm]{Increase `For expression' by 1};
+\node (F)[connector,below of=forexp, yshift = -2cm]{F};
+\node (G)[connector,right of=F, xshift = 12cm]{G};
+\end{tikzpicture}
+
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+\node (F)[connector]{F};
+\node (G)[connector,right of=F, xshift = 12cm]{G};
+\node (fors)[decision, below of=F, yshift=-2cm]{ForStatements};
+\node (fors1) [process, right of=fors, xshift=6cm]{AST\_HandleForStatem};
+\node (endfor)[decision, below of=fors, yshift=-2.5cm]{EndFor};
+\node (endfor1) [process, right of=endfor, xshift=6cm]{Decrease `For' level by 1. (AST\_HandleEndFor)};
+\node (while)[decision, below of=endfor, yshift=-2cm]{While};
+\node (while1) [process, right of=while, xshift=6cm]{Increase `while' level by 1};
+\node (whilexp)[decision, below of=while, yshift=-2.5cm]{WhileExpression};
+\node (whilexp1) [process, right of=whilexp, xshift=6cm]{AST\_HandleWhileExpr};
+\node (whiles)[decision, below of=whilexp, yshift=-3.5cm]{WhileStatements};
+\node (whiles1) [process, right of=whiles, xshift=6cm]{AST\_HandleWhileStatem};
+\node (endwhile)[decision, below of=whiles, yshift=-3cm]{EndWhile};
+\node (endwhile1) [process, right of=endwhile, xshift=6cm]{Decrease `while' level by 1 (AST\_HandleEndWhile)};
+\node (more)[decision, below of=endwhile, text width=2cm, yshift=-3cm]{More lines present in ast file?};
+\node (save) [process, right of=more, xshift=4cm, yshift=-1.5cm]{Save `SharedInfo' structure};
+\node (stop) [startstop, right of=save, xshift=4.5cm]{Stop};
+
+\end{tikzpicture}
+
+
+
+\end{center}
 
 \end{document}

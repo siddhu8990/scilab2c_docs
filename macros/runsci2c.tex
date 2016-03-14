@@ -23,7 +23,7 @@
 
 
 \begin{document}
-\newgeometry{top=1cm, bottom=0.5cm,right=1cm,left=1.5cm}
+\newgeometry{top=2cm, bottom=0.5cm,right=1cm,left=1.5cm}
 
 \vspace*{2cm}
 \begin{center}
@@ -49,8 +49,8 @@ directory and then calls other module to generate makefile for compilation.\\
 \node (getMode) [process, below of=initialise]{Get `RunMode'};
 \node (runMode) [decision, below of=getMode, text width=3cm, yshift=-2cm]{Is RunMode All or Generate library structure?};
 \node (genLib) [process, right of=runMode, xshift=5cm, text width=5cm]{Initialise library structure (\hyperlink{initGenLib}{INIT\_GenLibraries})};
-\node (loadLib) [process, below of=runMode, yshift=-2cm] {Load library information (\hyperlink{initGenLib}{INIT\_LoadLibraries})};
-\node (A) [connector,below of=loadLib, signal to=south, yshift=-1cm] {A};
+\node (loadLib) [process, below of=runMode, yshift=-2cm] {Load library information (\hyperlink{initLoadLib}{INIT\_LoadLibraries})};
+\node (A) [connector,below of=loadLib, signal to=south, yshift=0.5cm] {A};
 
 \draw [arrow] (start) -- (input);
 \draw [arrow] (input) -- (initialise);
@@ -65,8 +65,8 @@ directory and then calls other module to generate makefile for compilation.\\
 \node (A) [connector]{A}; 
 \node (runMode1) [decision, below of=A, text width=2.5cm, yshift=-2cm]{Is RunMode All or Translate?}; 
 \node (main) [process, below of=runMode1, yshift=-1cm]{Get main scilab file};
-\node (updInfo)[process, below of=main,text width=4cm, yshift=-0.5cm]{Update its info in `FileInfo' (UpdateSCI2CInfo)};
-\node (getAST)[process, below of=updInfo, text width=4cm, yshift=-0.5cm]{Generate AST file (AST\_GetASTFile)};
+\node (updInfo)[process, below of=main,text width=4cm, yshift=-0.5cm]{Update its info in `FileInfo' (\hyperlink{updateSCI2CInfo}{UpdateSCI2CInfo})};
+\node (getAST)[process, below of=updInfo, text width=4cm, yshift=-0.5cm]{Generate AST file (\hyperlink{AST_GetASTFile}{AST\_GetASTFile})};
 \node (ast2c)[process, below of=getAST, text width=4cm, yshift=-0.5cm]{Generate C code from AST file (AST2Ccode) };
 \node (decJoin)[process, below of=ast2c, text width=4cm, yshift=-1cm]{Join variable declarations and C code (JoinDeclarAndCcode)};
 \node (checkFile)[decision, below of=decJoin, text width=3cm, yshift=-2cm]{Is any scilab file left for conversion?};
