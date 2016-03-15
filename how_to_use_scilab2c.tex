@@ -28,54 +28,7 @@
 
 
 \section{User manual for Scilab2C}
-
-
-
-% 
-% This flow chart describes steps to be followed for using `scilab2c' extenstion.
-% 
-% \begin{tikzpicture}[node distance=2cm]
-% \label{first}
-% 
-% \node (start) [startstop] {Start};
-% \node (open$_$gui)[process, text width=7cm,  below of=start] {Open scilab2c gui in Scilab by typing `sci2c\_gui' in command window};
-% \node (no$_$of$_$files) [decision, below of=open$_$gui, text width=2cm, yshift=-1.5cm] {Does scilab code consists of multiple files?};
-% \node (single$_$file) [process, below of=no$_$of$_$files, text width=5cm, yshift=-1cm, xshift=-4cm] {Select scilab file by clicking 'Browse' against 'Main file name'};
-% \node (multi$_$files) [process, below of=no$_$of$_$files, text width=5cm, yshift=-1cm, xshift= 4cm] {Select main scilab file by clicking 'Browse' against 'Main file name'};
-% \node (sub$_$functions) [process, below of=multi$_$files,text width=6cm]{Select \textbf{folder} containing other scilab functions by clicking 'Browse' against 'Sub-functions'};
-% \node (out$_$dir) [process, below of=no$_$of$_$files, text width=5cm, yshift=-5cm] {Select folder in which to store results of conversion};
-% \node (run$_$mode) [process, below of=out$_$dir] {Select 'All' for 'Run mode'};
-% \node (A) [connector,below of=run$_$mode, signal to=south] {A};
-% 
-% \draw [arrow] (start) -- (open$_$gui);
-% \draw [arrow] (open$_$gui) -- (no$_$of$_$files);
-% \draw [arrow] (no$_$of$_$files) -| node[anchor=east] {yes} (multi$_$files);
-% \draw [arrow] (no$_$of$_$files) -| node[anchor=west] {no} (single$_$file);
-% \draw [arrow] (multi$_$files) -- (sub$_$functions);
-% \draw [arrow] (single$_$file) |- (out$_$dir); 
-% \draw [arrow] (sub$_$functions) |- (out$_$dir);
-% \draw [arrow] (out$_$dir) -- (run$_$mode);
-% \draw [arrow] (run$_$mode) -- (A);
-% \end{tikzpicture}
-% 
-% 
-% \begin{tikzpicture}[node distance=2cm]
-% \node (A) [connector, signal to=north] {A};
-% \node (target) [process, below of=A] {Select required 'Target'};
-% \node (copy$_$code) [process, below of=target] {Select desired choice for `Copy scilab code into C'};
-% \node (tool) [process, below of=copy$_$code] {Select desired choice for `Tool to compile generated C code'};
-% \node (convert) [process, below of=tool] {Press `Convert' to start the conversion};
-% \node (stop) [startstop, below of=out$_$dir] {Stop};
-% 
-% \draw [arrow] (A) -- (target); 
-% \draw [arrow] (target) -- (copy$_$code);
-% \draw [arrow] (copy$_$code) -- (tool);
-% \draw [arrow] (tool) -- (convert);
-% \draw [arrow] (convert) -- (stop);
-% 
-% 
-% \end{tikzpicture}
-
+\hypertarget{user_manual}
 This section describes steps to be followed for using Scilab2C. Pre-requisites are mentioned followed by procedure to install Scilab2C.
 \\
 
@@ -112,7 +65,7 @@ Most of the supporting packages or libraries which are required are provided wit
 latest source code available at release of toolbox. If you want to use latest libraries, steps to compile the same are listed 
 below. You can follow these steps and replace old files with newly generated ones.
 \begin{itemize}
- \item scilab-arduino toolbox
+ \item {\textbf{scilab-arduino toolbox}}
   
  %\end{itemize}
   \hypertarget{tools}{}
@@ -193,7 +146,8 @@ You can follow following steps for generating C code using scilab2c extension fo
  \begin{enumerate}
   \item Write the scilab script first which is to be converted to C. Scilab code can contain single file or many files, but each file must be a scilab function. 
   There must be one main scilab file in case project contains many files, from which execution of code starts. All scilab files must be in a single folder. 
-  
+  \item Before a scilab can be translated to c file, some function annotations should be added manually. Function annotations gives information about no. of inputs/outputs, 
+  their types etc. Refer \hyperlink{annot}{`Function annotations'} for more details.
   \begin{figure}[h]
   {
   \centering
@@ -314,10 +268,11 @@ You can follow following steps for generating C code using scilab2c extension fo
   \item If code doesnot behave as expected, modify sclab code and follow the steps again.
 
  \end{enumerate}
- \item Generating code for AVR
+ \item \textbf{Generating code for AVR}
 \end{itemize}
 
-
+\subsection{Function Annotations}
+Each scilab function/file should start with the function annotation section having following structure:
 
 
 
