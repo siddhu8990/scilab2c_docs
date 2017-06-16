@@ -9,11 +9,12 @@
 
 \documentclass[12pt]{article}
 \usepackage{tikz}
-\usetikzlibrary{shapes.geometric, arrows}
+%\usetikzlibrary{shapes.geometric, arrows}
 \usepackage[colorlinks=true, linkcolor=blue, pdfborder={0 0 0}]{hyperref}
 \usepackage{standalone}
 \usepackage[a4paper]{geometry}
 \usepackage{listings}
+\usetikzlibrary{arrows,calc,automata,shapes.arrows}
 
 %DO NOT EDIT start
 %Define different shapes to be used in flowchart
@@ -63,13 +64,13 @@ it is preferred over other programming languages like C, Java or Python. But cod
 \newpage
 \input{manuals/developer_manual}
 \newpage
-\section{Flowcharts}
-\newgeometry{top=2cm, bottom=0.5cm,right=1cm,left=1.5cm}
-\input{macros/scilab2c};
-\input{macros/runsci2c};
-\input{macros/ToolInitialization/INIT_SCI2C};
-\input{macros/ToolInitialization/INIT_GenLibraries};
-\input{macros/ToolInitialization/INIT_LoadLibraries};
-\input{macros/ToolInitialization/UpdateSCI2CInfo};
-\input{macros/ASTManagement/AST_GetASTFile};
+%\section{Flowcharts}
+%\newgeometry{top=2cm, bottom=0.5cm,right=1cm,left=1.5cm}
+%\input{macros/scilab2c};
+%\input{macros/runsci2c};
+%\input{macros/ToolInitialization/INIT_SCI2C};
+%\input{macros/ToolInitialization/INIT_GenLibraries};
+%\input{macros/ToolInitialization/INIT_LoadLibraries};
+%\input{macros/ToolInitialization/UpdateSCI2CInfo};
+%\input{macros/ASTManagement/AST_GetASTFile};
 \end{document}

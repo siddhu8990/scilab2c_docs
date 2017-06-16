@@ -41,11 +41,16 @@
   \item Make new folder in `macros' and `src/c' only when new scilab or c file do not fit into any of the existing folders.
   If new folder is added in `macros' make sure you add file `buildmacros.sce' and add that folder in 'etc/scilab2c.start' also.
   \item Add appropriate comments while writing scilab and c functions.
+  \item Naming convention to be followed for c functions is `$<$data\_type$><$function\_name$><$dimension$>$' where dimension can be `s' or `a' for scalar and vector/matrix respectively and
+  data type can be one of mentioned in table \ref{tb:types}. \\
+  For example, c function names for `sin' function for data type double will be `dsins.c' and `dsina.c' for scalar and matrix respectively.  
   \item Generated c function names follow following name convention\\
   \texttt{$<$inputs\_type\_\&\_dimensions$><$function\_name$><$outputs\_type\_\&\_dimensions$>$}
   where dimensions can be `0' for scalar types and `2' for vector/matrix types of data. Input and output types can be any one 
-  of the specified in table \ref{table:types}\\
+  of the specified in table \ref{tb:types}\\
   \begin{table}[b]
+  \caption{Data types}
+  \label{tb:types}
   \centering 
   \begin{tabular}{|c|c|}
    \hline
@@ -58,10 +63,13 @@
    real double precision & d \\ \hline
    complex single precision & c \\ \hline
    complex double precision & z \\ \hline
+   string & g \\ \hline
    
   \end{tabular}
-  \label{types}
+  
   \end{table}
+  For example, scilab function `sin (30)', generated c function name will be `d0sind0' as input is of type double and scalar (d0) and 
+  output is also of same type and dimensions (d0).
   \item Interface files provide an interface link to generated c name to a corresponding c function in `src' folder.
   For e.g., `\#define s0coss0(in) scoss(in)' links `s0coss0' with c function `scoss'. `s0coss0' is function name generated for 
   cos function using real single precision data as an input and output is of same type. While `scoss' is implementation 
@@ -81,13 +89,13 @@
    \hyperlink{coding_guide}{'Coding guidelines'}. For example, a function with name `functionname' accepting one input arguement of type `double' scalar and giving output 
    of type `double' scalar, corresponding C function name will be `dfunctionnames'.
    \item In `src' folder in toolbox, find suitable folder which contains other functions providing similar functionality. If you think new function does not fit into any of 
-   the current folders than only make new folder. Now in slected folder make a new folder with name as that of c function name. For example, `functionname' in above case.
+   the current folders than only make new folder. Now in selected folder make a new folder with name as that of scilab function name. For example, `functionname' in above case.
    Store c files corresponding to this function in this folder. Make sure you have covered all possiblities of input/output arguements.
    \item Write header and interface files for new function. A header file with name `functionname.h' contains definition of all functions defined in that folder. An interface 
    file contains definition linking function name generated during conversion from scilab to c and functions written in c. For more details about interface files, 
    refer \hyperlink{coding_guide}{`Coding guidelines'}.
    \item Store header file and interface file in folders named `includes' and `interfaces' respectively.
-   \item Open `includes/sci2clib.h' Add name of the header file here also.
+   \item Open `/path/to/toolbox/includes/sci2clib.h' Add name of the header files here also at appropriate position.
    \item Goto folder `macros/findDeps'. Update files `getAllHeaders.sci', `getAllInterfaces.sci', `getAllSources.sci'. You need to add paths of corresponding files in these files.
    \item Open `macros/ToolInitialisation/INIT\_FillSCI2LibCDirs.sci'. This file basically lists out the functions supported by scilab2c. Whenever a new function is added to
    scilab2c toolbox, this file must be updated. Each function atleast contains the following description. Actual description can contain more lines depending on the 

@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section.1}{User manual for Scilab2C}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Installation}{section.1}% 2
+\BOOKMARK [3][-]{subsubsection.1.1.1}{Prerequisites}{subsection.1.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.1.2}{Installing Scilab2C}{subsection.1.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.1.3}{Installing supporting packages}{subsection.1.1}% 5
+\BOOKMARK [2][-]{subsection.1.2}{Using Scilab2C for C code generation}{section.1}% 6
+\BOOKMARK [3][-]{subsubsection.1.2.1}{Generating standalone C code}{subsection.1.2}% 7
+\BOOKMARK [3][-]{subsubsection.1.2.2}{Generating code for Arduino}{subsection.1.2}% 8
+\BOOKMARK [3][-]{subsubsection.1.2.3}{Generating code for AVR}{subsection.1.2}% 9
+\BOOKMARK [3][-]{subsubsection.1.2.4}{Generating code for Raspberry Pi}{subsection.1.2}% 10
+\BOOKMARK [2][-]{subsection.1.3}{Function Annotations}{section.1}% 11
