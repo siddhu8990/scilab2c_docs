@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.20)  16 JUN 2017 14:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.7.5)  7 JUL 2017 15:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **developer_manual.tex
 (./developer_manual.tex
 LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+Babel <3.9q> and hyphenation patterns for 3 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
@@ -685,24 +685,65 @@ ts[]type[]&[]dimensions$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 where di-men-
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-) [3] [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 142.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 142.
+) [3]
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no œ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no  in font cmr12!
 
-(./developer_manual.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 142.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 142.
+Overfull \hbox (19.51929pt too wide) in paragraph at lines 146--150
+\OT1/cmr/m/n/12 extern dou-ble dgesvd$[]$(char*,char*,int*,int*,double*,int*,do
+uble*,double*,int*, dou-ble*,int*,double
+ []
+
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ˜ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ˜ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 156--158
+
+ []
+
+
+Overfull \hbox (31.56929pt too wide) in paragraph at lines 159--160
+[]\OT1/cmr/m/n/12 dgesvd$[]$(&JOBU,&JOBVT,&M,&N,buf,&LDA,S,U,&LDU,VT,&LDVT,WORK
+,&LWORK,&INFO); 
+ []
+
+[5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 163.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 163.
+ (./developer_manual.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 163.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 163.
 Package rerunfilecheck Info: File `developer_manual.out' has not changed.
-(rerunfilecheck)             Checksum: 13A82042B339B584BB6476A1BFD07FA8;289.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 142.
+(rerunfilecheck)             Checksum: 2DD21409A9871706B0D01A23A3D07B11;399.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 163.
  ) 
 Here is how much of TeX's memory you used:
- 19829 strings out of 493029
- 370038 string characters out of 6136233
- 609548 words of memory out of 5000000
- 23054 multiletter control sequences out of 15000+600000
+ 19838 strings out of 494953
+ 370116 string characters out of 6180978
+ 604709 words of memory out of 5000000
+ 22804 multiletter control sequences out of 15000+600000
  8710 words of font info for 31 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
+ 14 hyphenation exceptions out of 8191
  55i,9n,56p,438b,2983s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{user_manual} has been referenced but does not exi
 st, replaced by a fixed one
@@ -714,10 +755,10 @@ texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive
 dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmtt12.pfb>
-Output written on developer_manual.pdf (4 pages, 89353 bytes).
+Output written on developer_manual.pdf (5 pages, 93695 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
- 51 named destinations out of 1000 (max. 500000)
- 45 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 148 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
