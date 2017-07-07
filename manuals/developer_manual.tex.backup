@@ -138,26 +138,5 @@
   If results are not as desired, modify c files as required and check again. Do it iteratively untill correct results are obtained.
   \end{enumerate}
 
-\subsection{Instructions for adding new functions using LAPACK Subroutine}
-\begin{enumerate}
- \item Lapack subroutine supports many functions, LAPACK (Linear Algebra Package) is a standard software library for numerical linear algebra.Find a suitable sub-routine which is required in your function. Let’s suppose you wish to write a program for SVD (Singular Value Decomposition), then DGESVD subroutine is used for real values.
- \item Go to Netlib website or google it, type your subroutine name in search query, than you’ll find decription of subroutine and the input variables required.
- \item Include lapack.h in your C program and include the name of function in lapack.h also. \\ \#include “lapack.h”
- \item As the function call is external, so before wrting the function name declare the function using extern keyword. As lapack library takes all the variable as address, keep this point in mind and declare variables accordingly.\\
- for SVD function:\\
- extern double dgesvd$\_$(char*,char*,int*,int*,double*,int*,double*,double*,int*,
-  double*,int*,double *,int*,int*);
-  \item Read the description of input variables and according to your needs choose variables values.\\
-  For example SVD function:\\
-char JOBU = ‘A’ // all M columns of U are returned in array U \\
-char JOBVT = ‘A’ // all N rows of V**T are returned in the array VT;\\
-Similarly for other variables.
-
- \item After assigning all the variables appropiate values and memory call the function.\\
-For example SVD function:\\
-
-dgesvd$\_$(\&JOBU,\&JOBVT,\&M,\&N,buf,\&LDA,S,U,\&LDU,VT,\&LDVT,WORK,\&LWORK,\&INFO);
-\end{enumerate}
-
  
 \end{document}
