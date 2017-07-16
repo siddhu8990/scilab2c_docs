@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.20)  16 JUN 2017 14:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  12 JUL 2017 17:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -525,20 +525,20 @@ Package: listings 2015/06/04 1.6 (Carsten Heinz)
 (./how_to_use_scilab2c.aux)
 \openout1 = `how_to_use_scilab2c.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
  ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -569,7 +569,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box40
-Package hyperref Info: Link coloring OFF on input line 26.
+Package hyperref Info: Link coloring OFF on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -579,9 +579,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count135
 )
-LaTeX Info: Redefining \ref on input line 26.
-LaTeX Info: Redefining \pageref on input line 26.
-LaTeX Info: Redefining \nameref on input line 26.
+LaTeX Info: Redefining \ref on input line 23.
+LaTeX Info: Redefining \pageref on input line 23.
+LaTeX Info: Redefining \nameref on input line 23.
 
 (./how_to_use_scilab2c.out) (./how_to_use_scilab2c.out)
 \@outlinefile=\write4
@@ -626,23 +626,55 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count136
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(42.67912pt, 512.14963pt, 42.67912pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=512.14963pt
+* \textheight=591.5302pt
+* \oddsidemargin=-29.59087pt
+* \evensidemargin=-29.59087pt
+* \topmargin=-7.86334pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--34
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 39.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 33.
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 33.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 39.
+(Font)              <12> on input line 33.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 39.
+(Font)              <8> on input line 33.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 39.
+(Font)              <6> on input line 33.
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
@@ -651,86 +683,99 @@ Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
  [1
 
+
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
+ [2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
 
-Overfull \hbox (260.64601pt too wide) in paragraph at lines 81--82
-\OT1/cmtt/m/n/12 `export PATH=$PATH:/location/of/tools/folder/arm-bcm2708/gcc-l
-inaro-arm-linux-gnueabihf-raspbian/bin' 
  []
 
-
-Overfull \hbox (28.03004pt too wide) in paragraph at lines 99--100
-[]\OT1/cmr/m/n/12 Download lat-est source code from `[]$\OT1/cmtt/m/n/12 https 
-: / / git . drogon . net / ?p = wiringPi$[]\OT1/cmr/m/n/12 '.
- []
-
-[2]
-Overfull \hbox (10.50722pt too wide) in paragraph at lines 120--121
-[]\OT1/cmr/m/n/12 Change cur-rent di-rec-tory to /path/-to/la-pack-/BLAS/SRC an
-d run `make'.
- []
-
-
-Overfull \hbox (93.92093pt too wide) in paragraph at lines 134--136
-\OT1/cmtt/m/n/12 ./configure -host=arm CC=arm-linux-gnueabihf-gcc ar=arm-linux-
-gnueabihf-ar
- []
-
-[3] <img/sci2cgui.png, id=80, 799.98875pt x 490.83376pt>
+[4] <img/sci2cgui.png, id=83, 805.0075pt x 523.9575pt>
 File: img/sci2cgui.png Graphic file (type png)
+ <use img/sci2cgui.png>
+Package pdftex.def Info: img/sci2cgui.png used on input line 188.
+(pdftex.def)             Requested size: 281.75685pt x 183.38786pt.
 
-<use img/sci2cgui.png>
-Package pdftex.def Info: img/sci2cgui.png used on input line 168.
-(pdftex.def)             Requested size: 319.98984pt x 196.33002pt.
+<img/gui_pick_file.png, id=86, 805.0075pt x 523.9575pt>
+File: img/gui_pick_file.png Graphic file (type png)
+
+<use img/gui_pick_file.png>
+Package pdftex.def Info: img/gui_pick_file.png used on input line 198.
+(pdftex.def)             Requested size: 281.75685pt x 183.38786pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/gui_pick_file.png, id=82, 799.98875pt x 489.83pt>
-File: img/gui_pick_file.png Graphic file (type png)
-
-<use img/gui_pick_file.png>
-Package pdftex.def Info: img/gui_pick_file.png used on input line 181.
-(pdftex.def)             Requested size: 319.98984pt x 195.92853pt.
-
-<img/gui_out_pickup.png, id=84, 804.00375pt x 485.815pt>
+<img/gui_out_pickup.png, id=88, 805.0075pt x 523.9575pt>
 File: img/gui_out_pickup.png Graphic file (type png)
 
 <use img/gui_out_pickup.png>
-Package pdftex.def Info: img/gui_out_pickup.png used on input line 193.
-(pdftex.def)             Requested size: 321.59581pt x 194.32256pt.
- [4]
-<img/gui_standalone.png, id=96, 804.00375pt x 485.815pt>
+Package pdftex.def Info: img/gui_out_pickup.png used on input line 210.
+(pdftex.def)             Requested size: 281.75685pt x 183.38786pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5 <./img/sci2cgui.png>]
+<img/gui_standalone.png, id=108, 805.0075pt x 523.9575pt>
 File: img/gui_standalone.png Graphic file (type png)
 
 <use img/gui_standalone.png>
-Package pdftex.def Info: img/gui_standalone.png used on input line 209.
-(pdftex.def)             Requested size: 321.59581pt x 194.32256pt.
+Package pdftex.def Info: img/gui_standalone.png used on input line 225.
+(pdftex.def)             Requested size: 281.75685pt x 183.38786pt.
 
-<img/gui_convert_btn.png, id=98, 799.98875pt x 491.8375pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<img/gui_convert_btn.png, id=110, 805.0075pt x 523.9575pt>
 File: img/gui_convert_btn.png Graphic file (type png)
 
 <use img/gui_convert_btn.png>
-Package pdftex.def Info: img/gui_convert_btn.png used on input line 223.
-(pdftex.def)             Requested size: 319.98984pt x 196.7315pt.
+Package pdftex.def Info: img/gui_convert_btn.png used on input line 239.
+(pdftex.def)             Requested size: 281.75685pt x 183.38786pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
- [5 <./img/sci2cgui.png>] [6 <./img/gui_pick_file.png> <./img/gui_out_pickup.pn
-g>] [7 <./img/gui_standalone.png> <./img/gui_convert_btn.png>] [8] <img/gui_ard
-uino.png, id=144, 799.98875pt x 491.8375pt>
+[6 <./img/gui_pick_file.png>]
+<img/gui_arduino.png, id=129, 805.0075pt x 523.9575pt>
 File: img/gui_arduino.png Graphic file (type png)
 
 <use img/gui_arduino.png>
-Package pdftex.def Info: img/gui_arduino.png used on input line 262.
-(pdftex.def)             Requested size: 319.98984pt x 196.7315pt.
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ô in font cmr12!
- [9 <./img/gui_arduino.png>]
+Package pdftex.def Info: img/gui_arduino.png used on input line 274.
+(pdftex.def)             Requested size: 281.75685pt x 183.38786pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<img/gui_arduino_board_select.png, id=132, 805.0075pt x 532.99126pt>
+File: img/gui_arduino_board_select.png Graphic file (type png)
+
+<use img/gui_arduino_board_select.png>
+Package pdftex.def Info: img/gui_arduino_board_select.png used on input line 28
+9.
+(pdftex.def)             Requested size: 281.75685pt x 186.54973pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7 <./img/gui_out_pickup.png>] [8 <./img/gui_standalone.png>]
+<img/gui_rpi.png, id=169, 805.0075pt x 532.99126pt>
+File: img/gui_rpi.png Graphic file (type png)
+ <use img/gui_rpi.png>
+Package pdftex.def Info: img/gui_rpi.png used on input line 320.
+(pdftex.def)             Requested size: 281.75685pt x 186.54973pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9 <./img/gui_convert_btn.png>]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -746,18 +791,31 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
+ [10 <./img/gui_arduino.png>]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [10]
-Underfull \hbox (badness 10000) in paragraph at lines 348--353
+ [11 <./img/gui_arduino_board_select.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 410--415
 
  []
 
-[11]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+[12 <./img/gui_rpi.png>]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
@@ -794,46 +852,52 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ú in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
- [12] [13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 453--460
+ [13]
+Overfull \hbox (55.87468pt too wide) in paragraph at lines 475--476
+[]\OT1/cmr/bx/n/12 FA[]SZ[]OPHAT\OT1/cmr/m/n/12 : NI-nArgs = 2, NOutArgs=1; thi
+s func-tion is an alias for FA[]SZ[]OPDOTSTAR.
+ []
+
+
+Overfull \hbox (73.12474pt too wide) in paragraph at lines 477--478
+[]\OT1/cmr/bx/n/12 FA[]SZ[]OPMINUS\OT1/cmr/m/n/12 : NI-nArgs = 2, NOutArgs=1; t
+his func-tion is an alias for FA[]SZ[]OPDOTSTAR.
+ []
+
+
+Overfull \hbox (72.2636pt too wide) in paragraph at lines 479--480
+[]\OT1/cmr/bx/n/12 FA[]SZ[]OPPLUSA\OT1/cmr/m/n/12 : NI-nArgs = 2, NOutArgs=1; t
+his func-tion is an alias for FA[]SZ[]OPDOTSTAR.
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 515--522
 
  []
 
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 461--466
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--528
 
  []
 
-[16]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 476.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 476.
+[15] [16]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 538.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 538.
  (./how_to_use_scilab2c.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 476.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 476.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 538.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 538.
 Package rerunfilecheck Info: File `how_to_use_scilab2c.out' has not changed.
-(rerunfilecheck)             Checksum: AA67C343AB2181DA68F3AF4C9E8A4C98;861.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 476.
+(rerunfilecheck)             Checksum: 0095DFF095048BED6B26B7BE097A2E37;775.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 538.
  ) 
 Here is how much of TeX's memory you used:
- 19913 strings out of 493029
- 371309 string characters out of 6136233
- 513073 words of memory out of 5000000
- 23088 multiletter control sequences out of 15000+600000
+ 19938 strings out of 493029
+ 371692 string characters out of 6136234
+ 513135 words of memory out of 5000000
+ 23098 multiletter control sequences out of 15000+600000
  8710 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,56p,640b,2164s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,8n,56p,638b,2259s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
@@ -841,10 +905,10 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on how_to_use_scilab2c.pdf (16 pages, 321865 bytes).
+Output written on how_to_use_scilab2c.pdf (16 pages, 427956 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 224 compressed objects within 3 object streams
- 90 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 283 PDF objects out of 1000 (max. 8388607)
+ 239 compressed objects within 3 object streams
+ 103 named destinations out of 1000 (max. 500000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -21,7 +21,7 @@
 
 
 \begin{document}
-\newgeometry{right=1.5cm,left=1.5cm}
+
 \section{User manual for Scilab2C}
 \hypertarget{user_manual}
 This section describes steps to be followed for using `Scilab2C'. Pre-requisites are mentioned followed by procedure to install `Scilab2C'.\\
@@ -48,7 +48,7 @@ Before we can use `Scilab2C' extension, we need to install latest version of Sci
   \item Clone the git repo using following command:\\ 
 \indent\indent\texttt{git clone https://github.com/siddhu8990/Scilab2C.git}
   \item Make sure a directory named `Scilab2C' is present in `contrib' folder.
-  \item Open Scilab.
+  \item Open the Scilab.
   \item Run `builder.sce’ file present in `Scilab2C/2.3-1’ using `exec'. This generates binary files from source files.\\
   \indent\indent\texttt{exec(`/path/to/Scilab2C/2.3-1/builder.sce')}
   \item In `Home/.Scilab/scilabx.x.x' make a new file `.scilab' if it does not exist already. (You may need to enable `Show hidden files' from `View' menu to see .Scilab folder'.
@@ -74,15 +74,15 @@ below. You can follow these steps and replace old files with newly generated one
    \item Open terminal and change directory to `RasberryPi tools'. Clone `Tools' repo using `git clone https://github.com/raspberrypi/tools.git'.
    \item Add location of toolchain to your `PATH' variable. Do one of the following:
    \begin{enumerate}
-    \item Add the following line to `.bashrc' file (The file is found in the home folder and is hidden by default).\\
-    \hspace*{5mm}\texttt{export PATH=\$PATH:/location/of/tools/folder/arm-bcm2708/gcc-linaro-\\\hspace*{5mm}arm-linux-gnueabihf-raspbian/bin}\\
+    \item Add the following line to `.bashrc' file.\\
+    {\it export PATH=\$PATH:/location/of/tools/folder/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin}\\
     Only effective for users using bash console.
     \item Edit the following line in `etc/environment' file.\\    
     \hspace*{5mm}\texttt{PATH=``...usr/bin:usr/sbin...''}\\
-    Add the following to the end of the line, inside the double-quotes\\
-    \hspace*{5mm}\texttt{:/location/of/tools/folder/arm-bcm2708/gcc-linaro-arm-linux-\\\hspace*{5mm}gnueabihf-raspbian/bin}\\
+    Add the following to the end of the line\\
+    {\it :/location/of/tools/folder/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin}\\
     So it looks like\\
-    \hspace*{5mm}\texttt{PATH=``...usr/bin:usr/sbin...:/location/of/tools/folder/arm-bcm2708\\\hspace*{5mm}/gcc-linaro-arm-linux-gnueabihf-raspbian/bin''}\\
+    \hspace*{5mm}{\it PATH=``...usr/bin:usr/sbin...:/location/of/tools/folder/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin''}\\
 %     \begin{itemize}
 %      \item {\texttt{export PATH=\$PATH:/location/of/tools/folder/arm-bcm27\\08/gcc-linaro-arm-linux-gnueabihf-raspbian/bin}}
 %      \item \begin{verbatim}sudo echo `PATH="'$PATH`"' > etc/environment\end{verbatim}
@@ -143,22 +143,16 @@ below. You can follow these steps and replace old files with newly generated one
    \item Extract source code at some suitable location on harddrive.
    \item Open the terminal window and change current directory to the location where 
    source is extracted.
-   \item Execute the following command \\
+   \item Execute following command \\
    \texttt{./configure -host=arm CC=arm-linux-gnueabihf-gcc ar=arm-lin\\ux-gnueabihf-ar --enable-static}
    \item Then execute `make' to cross compile the library. Don't do `make install' as it is normally the next step.
    \item Library `libgsl.a' is created in folder `.libs'. By default this folder is hidden.
    \item Now replace the generated lib file in `thirdparty/lib/rasberrypi/' in `scilab2c' source folder.
-   \item We need to set a environment variable `C\_INCLUDE\_PATH' so that arm compiler can find required files while compiling the code.\\
-   For this, do one of the following:
-   \begin{enumerate}
-    \item Add the following line to `.bashrc' file (The file is found in the home folder and is hidden by default):\\
-    \hspace*{5mm} \texttt{export C\_INLUDE\_PATH="/path/to/gsl-2.4/ folder"}\\
-    Only effective for users using bash console.
-    \item  Add the followind line to the `etc/environment' file:\\
-    \hspace*{5mm} \texttt{C\_INLUDE\_PATH="/path/to/gsl-2.4/ folder"}\\
-    Only effective for linux versions that use /etc/environment file
-   \end{enumerate}
-   Replace /path/to/gsl-2.4/ folder by actual path on your machine.\\
+   \item We need to set a environment variable `C\_INCLUDE\_PATH' so that arm compiler can find required files while compiling the code.
+   For doing this, type following in the terminal:\\
+   \texttt{export C\_INLUDE\_PATH="/path/to/gsl-2.4/ folder"}\\
+   Replace /path/to/gsl-2.4/ folder by actual path on your machine.\\ (Temporary declaration only)
+   
    \end{itemize}
    
 \end{itemize}
@@ -332,19 +326,11 @@ You can follow these steps for generating C code using Scilab2c extension for re
  \item When shifting back and forth between Rpi and other targets, the output folder should either be new or emptied out before converting the scilab code.
  \item Not all functions available with the raspberry are hardware tested:\\
  I2C, Serial, expansion chips/ICs (MCP/PCF), analog, gertboard, piGlow, 128x64 LCD, pwm, soft\_pwm, tone, soft\_tone
-%  \item The raspberry pi gcc compiler does not support direct multiplication, division and boolean comparison of doubleComplex and floatComplex data types.\\
-%  Therefore, direct operations of these data types , like z$_1$*z$_2$ or z$_1$/z$_2$ or z$_1$==z$_2$ (where z is a floatComplex or doubleComplex), is not allowed. It leads to an error (Figure \ref{fig:pi_error}).\\
-%  These operations are done using the predefined functions like zmuls, cdivs etc.
-% \end{enumerate}
-% \begin{figure}[h]
-% {\centering
-% \includegraphics[scale=0.35]{img/rpi_error}
-% \caption {\small{floatComplex and doubleComplex error}}
-% \label{fig:pi_error}
-% }
-% \end{figure}  
+ \item The raspberry pi gcc compiler does not support direct multiplication, division and boolean comparison of doubleComplex and floatComplex data types.\\
+ Therefore, direct operations of these data types , like z$_1$*z$_2$ or z$_1$/z$_2$ or z$_1$==z$_2$ (where z is a floatComplex or doubleComplex), is not allowed. It leads to an error (Figure \ref{fig:pi_error}).\\
+ These operations are done using the predefined functions like zmuls, cdivs etc.
+\end{enumerate}
 
-\newpage
 \subsection{Function Annotations}
 
 \hypertarget{annot}
@@ -365,6 +351,13 @@ Each scilab function/file should start with the function annotation section havi
 //SCI2C: OUT(NOUT).SZ(2)=
 //SCI2C: DEFAULT_PRECISION= DOUBLE
 \end{lstlisting}
+  \begin{figure}[h]
+  {\centering
+  \includegraphics[scale=0.35]{img/rpi_error}
+  \caption {\small{floatComplex and doubleComplex error}}
+  \label{fig:pi_error}
+  }
+  \end{figure}  
 Although a minimum flexibility is available in the function annotation, we suggest observing anyway the following annotation rules:
 \begin{itemize}
  \item Each annotation line must start with “//SCI2C:” tag. This makes possible to hide annotations to Scilab interpreter and makes also possible to run the code without error generation.
@@ -533,6 +526,6 @@ FA\_INT(`ciao') = `ciao'\\
   
 
  \end{enumerate}
- \end{enumerate}
+
 
 \end{document}
