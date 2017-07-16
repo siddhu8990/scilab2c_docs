@@ -1,9 +1,6 @@
 %Author: Siddhesh Wani
 %Date: March 14, 2016
 
-
-
-
 \documentclass[12pt]{article}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
@@ -49,7 +46,6 @@
   where dimensions can be `0' for scalar types and `2' for vector/matrix types of data. Input and output types can be any one 
   of the specified in table \ref{tb:types}\\
   \begin{table}[b]
-  \caption{Data types}
   \label{tb:types}
   \centering 
   \begin{tabular}{|c|c|}
@@ -58,15 +54,14 @@
    unsigned 8 bit & u8 \\ \hline
    signed 8 bit & i8 \\ \hline
    unsigned 16 bit & u16 \\ \hline
-   signed 16 bit & u16 \\ \hline
+   signed 16 bit & i16 \\ \hline
    real single precision & s \\ \hline
    real double precision & d \\ \hline
    complex single precision & c \\ \hline
    complex double precision & z \\ \hline
    string & g \\ \hline
-   
   \end{tabular}
-  
+  \caption{Data types}
   \end{table}
   For example, scilab function `sin (30)', generated c function name will be `d0sind0' as input is of type double and scalar (d0) and 
   output is also of same type and dimensions (d0).
@@ -80,27 +75,17 @@
  \subsection{Instructions for adding new functions}
  \begin{enumerate}
    \item Decide new scilab function for which support for C conversion is to be added.
-   \item Run that function with arguements different data types if function supports different data types. Note down the data types supported.
-   \item Go to help file of the same function in Scilab and understand its functionality, cases for input/output arguements (like just one input or variable number of
-    inputs etc), dependance of functionality on input arguements etc.
-   \item Write C code implementing same functionality as provided by selected scilab function. You may require to write multiple functions (in separate files) as with
-   some scilab function functionality is different for different number or types of input arguements.
-   \item Name of C function and corresponding c file should correspond to types and number of input/output arguements and name of the function. For naming convention, refer 
-   \hyperlink{coding_guide}{'Coding guidelines'}. For example, a function with name `functionname' accepting one input arguement of type `double' scalar and giving output 
-   of type `double' scalar, corresponding C function name will be `dfunctionnames'.
-   \item In `src' folder in toolbox, find suitable folder which contains other functions providing similar functionality. If you think new function does not fit into any of 
-   the current folders than only make new folder. Now in selected folder make a new folder with name as that of scilab function name. For example, `functionname' in above case.
-   Store c files corresponding to this function in this folder. Make sure you have covered all possiblities of input/output arguements.
-   \item Write header and interface files for new function. A header file with name `functionname.h' contains definition of all functions defined in that folder. An interface 
-   file contains definition linking function name generated during conversion from scilab to c and functions written in c. For more details about interface files, 
-   refer \hyperlink{coding_guide}{`Coding guidelines'}.
+   \item Run that function with arguements of different data types, if function supports different data types. Note down the data types supported.
+   \item Go to help file of the same function in Scilab and understand its functionality, cases for input/output arguements (like just one input or variable number of inputs etc), dependance of functionality on input arguements etc.
+   \item Write C code implementing same functionality as provided by selected scilab function. You may require to write multiple functions (in separate files) as with some scilab function functionality is different for different number or types of input arguements.
+   \item Name of C function and corresponding c file should correspond to types and number of input/output arguements and name of the function. For naming convention, refer \hyperlink{coding_guide}{'Coding guidelines'}. For example, a function with name `functionname' accepting one input arguement of type `double' scalar and giving output of type `double' scalar, corresponding C function name will be `dfunctionnames'.
+   \item In `src' folder in toolbox, find suitable folder which contains other functions providing similar functionality. If you think new function does not fit into any of the current folders than only make new folder. Now in selected folder make a new folder with name as that of scilab function name. For example, `functionname' in above case. Store c files corresponding to this function in this folder. Make sure you have covered all possiblities of input/output arguements.
+   \item Write header and interface files for new function. A header file with name `functionname.h' contains definition of all functions defined in that folder. An interface file contains definition linking function name generated during conversion from scilab to c and functions written in c. For more details about interface files, refer \hyperlink{coding_guide}{`Coding guidelines'}.
    \item Store header file and interface file in folders named `includes' and `interfaces' respectively.
    \item Open `/path/to/toolbox/includes/sci2clib.h' Add name of the header files here also at appropriate position.
    \item Goto folder `macros/findDeps'. Update files `getAllHeaders.sci', `getAllInterfaces.sci', `getAllSources.sci'. You need to add paths of corresponding files in these files.
-   \item Open `macros/ToolInitialisation/INIT\_FillSCI2LibCDirs.sci'. This file basically lists out the functions supported by scilab2c. Whenever a new function is added to
-   scilab2c toolbox, this file must be updated. Each function atleast contains the following description. Actual description can contain more lines depending on the 
-   function. 
-   \begin{lstlisting}[breaklines=true,language=Scilab, numbers=left, numbersep=5pt, numberstyle=\small\color{gray}, frame=single ]
+   \item Open `macros/ToolInitialisation/INIT\_FillSCI2LibCDirs.sci'. This file basically lists out the functions supported by scilab2c. Whenever a new function is added to scilab2c toolbox, this file must be updated. Each function atleast contains the following description. Actual description can contain more lines depending on the function. 
+   \begin{lstlisting}[breaklines=true,language=Scilab, numbers=left, numbersep=5pt, numberstyle=\small\color{gray},frame=single]
     ClassName = 'Sin';
 
     // --- Class Annotation. ---
@@ -123,6 +108,7 @@
     INIT_GenAnnFLFunctions(FunctionName,SCI2CLibCFLFunDir,ClassName,GeneralReport,ExtensionCFuncListFun);
 
   \end{lstlisting}
+  
   Line 1 specifies the name of class. Single class can describe multiple functions if input/output arguemnts types/numbers
   are same for multiple functions.\\
   Line 3,4 and 5 are same for all functions.\\

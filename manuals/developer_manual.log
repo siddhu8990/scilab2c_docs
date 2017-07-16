@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.20)  16 JUN 2017 14:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  12 JUL 2017 14:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -665,6 +665,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 44.
 
+Package caption Warning: \label without proper reference on input line 52.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tb:types' on page 1 undefined on input line 45.
+
+
 Overfull \hbox (9.90633pt too wide) in paragraph at lines 44--47
 []\OT1/cmr/m/n/12 Naming con-ven-tion to be fol-lowed for c func-tions is `$\OM
 L/cmm/m/it/12 <$\OT1/cmr/m/n/12 data[]type$\OML/cmm/m/it/12 ><$\OT1/cmr/m/n/12 
@@ -673,7 +680,14 @@ $\OT1/cmr/m/n/12 '
  []
 
 
-Overfull \hbox (13.30426pt too wide) in paragraph at lines 47--73
+Package caption Warning: \label without proper reference on input line 52.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tb:types' on page 1 undefined on input line 50.
+
+
+Overfull \hbox (13.30426pt too wide) in paragraph at lines 47--71
 \OML/cmm/m/it/12 <$\OT1/cmtt/m/n/12 inputs[]type[]&[]dimensions$\OML/cmm/m/it/1
 2 ><$\OT1/cmtt/m/n/12 function[]name$\OML/cmm/m/it/12 ><$\OT1/cmtt/m/n/12 outpu
 ts[]type[]&[]dimensions$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 where di-men-
@@ -686,24 +700,28 @@ ts[]type[]&[]dimensions$\OML/cmm/m/it/12 >$ \OT1/cmr/m/n/12 where di-men-
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 ) [3] [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 142.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 142.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 132.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
 
 (./developer_manual.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 142.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 142.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 132.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `developer_manual.out' has not changed.
 (rerunfilecheck)             Checksum: 13A82042B339B584BB6476A1BFD07FA8;289.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 142.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 132.
  ) 
 Here is how much of TeX's memory you used:
  19829 strings out of 493029
- 370038 string characters out of 6136233
- 609548 words of memory out of 5000000
+ 370038 string characters out of 6136234
+ 609614 words of memory out of 5000000
  23054 multiletter control sequences out of 15000+600000
  8710 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,9n,56p,438b,2983s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,9n,56p,463b,2983s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{user_manual} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -714,7 +732,7 @@ texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive
 dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmtt12.pfb>
-Output written on developer_manual.pdf (4 pages, 89353 bytes).
+Output written on developer_manual.pdf (4 pages, 89607 bytes).
 PDF statistics:
  133 PDF objects out of 1000 (max. 8388607)
  118 compressed objects within 2 object streams
